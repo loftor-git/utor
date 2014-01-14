@@ -12,16 +12,8 @@
  ?>
 <?php $this->need('aside.php'); ?>
 <div class="col-mb-12 col-tb-9 col-wd-7 " id="main" role="main">
-	<h2 class="main-title kit-hidden-mb">Lastest News</h2>
 	<?php while($this->next()): ?>
 	<article class="post clearfix">
-		<div class="row">
-			<ul class="post-meta">
-				<li class="col-mb-7"><?php $this->category(','); ?></li>
-				<li class="col-mb-3 tr"><!-- <a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a># --><?php $this->date('Y-m-d H:m')?></li>
-				<li class="col-mb-2 tr"><a href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?></a></li>
-			</ul>
-		</div>
 		<div class="row">
 			<?php if (isset($this->fields->thumb)): ?>
 			<div class="kit-hidden-tb col-3">
@@ -29,10 +21,15 @@
 			</div>
 			<?php endif; ?>
 			<div class="col-mb-12 <?php if (isset($this->fields->thumb)): ?>col-9<?php endif; ?>">
-				<h2 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
+				<h3 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h3>
+				<ul class="post-meta clearfix">
+					<li class="fl"><a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a> 发布于 <?php echo timesince($this->created)?></li>
+					<li class="fr"><a href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评', '1 评', '%d 评'); ?></a></li>
+				</ul>
 				<div class="post-content">
 					<?php $this->content('- 阅读剩余部分 -'); ?>
 				</div>
+				<div class="post-tags"><?php $this->tags(' '); ?></div>
 			</div>
 		</div>
 	</article>

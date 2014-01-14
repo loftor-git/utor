@@ -23,30 +23,24 @@ function themeFields($layout) {
 }
 */
 
-function time_tran($the_time){
-    $now_time =time();
-    $show_time = $the_time->timeStamp;
-    $dur = $now_time - $show_time;
-    if($dur < 0){
-        echo $the_time->format('y/m/d');
-    }else{
-        if($dur < 60){
-        echo $dur.'秒前';
-        }else{
-            if($dur < 3600){
-                echo floor($dur/60).'分钟前';
-                }else{
-                    if($dur < 86400){
-                        echo floor($dur/3600).'小时前';
-                        }else{
-                            if($dur < 259200){//3天内
-                                echo floor($dur/86400).'天前';
-                            }else{
-                                echo $the_time->format('y/m/d');
-                            }
-                        }
-                }
+function timesince($older_date,$comment_date = false) {
+    $chunks = array(
+        array(86400 , '天'),
+        array(3600 , '小时'),
+        array(60 , '分钟'),
+        array(1 , '秒'),
+    );
+    $newer_date = time();
+    $since = abs($newer_date - $older_date);
+    if($since < 2592000){
+        for ($i = 0, $j = count($chunks); $i < $j; $i++){
+            $seconds = $chunks[$i][0];
+            $name = $chunks[$i][1];
+            if (($count = floor($since / $seconds)) != 0) break;
         }
+        $output = $count.$name.'前';
+    }else{
+        $output = !$comment_date ? (date('Y-m-j G:i', $older_date)) : (date('Y-m-j', $older_date));
     }
+    return $output;
 }
-

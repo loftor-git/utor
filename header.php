@@ -14,6 +14,8 @@
 
     <!-- 使用url函数转换相关路径 -->
     <link rel="stylesheet" href="http://cdn.staticfile.org/normalize/2.1.3/normalize.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="<?php $this->options->themeUrl('common.js'); ?>"></script>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('grid.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>">
 
@@ -40,7 +42,7 @@
                     <?php endif; ?>
                     <?php $this->options->title() ?>
                 </a>
-        	    <span class="description"><?php $this->options->description() ?></span>
+        	    <span class="description kit-hidden-mb"><?php $this->options->description() ?></span>
             </div>
             <div class="nav-menu col-6 kit-hidden-mb">
                 <nav id="nav-menu" class="clearfix" role="navigation">

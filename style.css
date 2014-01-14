@@ -12,8 +12,9 @@
 body {
   background-color: #FFFFFF;
   color: #444;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Microsoft YaHei","微软雅黑","Helvetica Neue", Helvetica, Arial, sans-serif;
   /*font-family: "Droid Serif", Georgia, "Times New Roman", STHeiti, serif;*/
+ /* font-family: "Open Sans",Arial,"Hiragino Sans GB","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif*/
   font-size: 87.5%;
 }
 
@@ -48,8 +49,10 @@ blockquote {
   border-left: 4px solid #F3F3F0;
 }
 
-h1, h2, h3 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+h1, h2, h3, h4, h5, h6, h7 {
+    font-weight: normal;
+    margin: 5px;
+    line-height: 1.2;
 }
 
 input[type="text"],
@@ -86,6 +89,18 @@ textarea {
   text-align: right;
 }
 
+.tc{
+  text-align: center;
+}
+
+.p0{
+  padding: 0!important;
+}
+
+.m0{
+  margin: 0!important;
+}
+
 /* Special link style */
 .post-meta a,
 .post-content a,
@@ -93,7 +108,7 @@ textarea {
 .aside a,
 .comment-content a {
   /*border-bottom: 1px solid #EEE;*/
-  color: #428BCA;
+  color: #006CD8;
 }
 
 .post-meta a:hover,
@@ -127,6 +142,7 @@ textarea {
     margin-bottom: 10px;
     border-bottom: 1px solid #080808;
     position: fixed;
+    z-index: 10000;
 }
 
 #logo {
@@ -204,22 +220,31 @@ textarea {
 
 }
 
-.aside-fixed{
-    position: fixed;
-    top:70px;
+
+.tags a{
+  padding: 0 5px;
+  line-height: 25px;
 }
 
-.aside-social{
+
+.social{
+    margin-top: 10px;
     border-top: 1px solid #E6EAED;
     padding-top: 30px;
+    top:40px;
+    z-index: 100;
 }
 
-.aside-social-weixin img{
-  width: 173px;
-  height: 173px;
+.social-weixin{
+  width: 100%;
+  text-align: center;
 }
 
-.aside-social p{
+.social-weixin img{
+  width: 150px;
+}
+
+.social p{
     color: #666666;
     font-size: 12px;
     text-align: center;
@@ -232,10 +257,6 @@ textarea {
  #main{
  }
 
-.main-title{
-  border-bottom: 1px solid #EEEEEE;
-  padding-bottom: 20px;
-}
 
 .post {
   background: #FFFFFF;
@@ -252,7 +273,7 @@ textarea {
 
 .post-title {
   margin: 5px 0;
-  font-size: 1.4em;
+  /*font-size: 1.2em;*/
 }
 
 .post-title a{
@@ -270,6 +291,10 @@ textarea {
   font-size: .92857em;
 }
 
+.post-meta a{
+  color: #999999;
+}
+
 .post-meta li {
   display: inline-block;
 }
@@ -277,6 +302,12 @@ textarea {
 .post-content {
   line-height: 1.5;
 }
+
+.post-tags a{
+  font-size: 0.85em;
+  padding: 0 5px;
+}
+
 .post .tags {
   clear: both;
 }
@@ -426,8 +457,19 @@ textarea {
 .widget-list li {
   margin: 5px 0;
   line-height: 1.5;
+  padding: 5px 0;
+  border-bottom: 1px dashed #DDDDDD;
 }
 .widget-list a:hover {
+}
+
+.sidebar-comment li{
+   padding: 10px 0;
+}
+
+.sidebar-comment .comment-content{
+  background: #DBE4FF;
+  padding: 20px 10px;
 }
 
 
