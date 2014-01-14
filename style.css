@@ -466,6 +466,10 @@ textarea {
 .sidebar-comment li{
    padding: 10px 0;
 }
+.sidebar-comment li a{
+   color: #444444;
+   text-decoration: none;
+}
 
 .sidebar-comment .comment-content{
   background: #DBE4FF;

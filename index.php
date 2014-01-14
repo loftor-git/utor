@@ -17,7 +17,7 @@
 		<div class="row">
 			<?php if (isset($this->fields->thumb)): ?>
 			<div class="kit-hidden-tb col-3">
-				<a href="<?php $this->permalink() ?>"><img class="post-thumb" src="<?php $this->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
+				<a href="<?php $this->permalink() ?>" title="<?php $this->title() ?>"><img class="post-thumb" src="<?php $this->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
 			</div>
 			<?php endif; ?>
 			<div class="col-mb-12 <?php if (isset($this->fields->thumb)): ?>col-9<?php endif; ?>">

@@ -8,7 +8,7 @@
             <li class="clearfix">
                 <?php if (isset($items->fields->thumb)): ?>
                 <div class="col-4">
-                    <a href="<?php $items->permalink() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
+                    <a href="<?php $items->permalink() ?>" title="<?php $items->title() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
                 </div>
                 <?php endif; ?>
                 <div class="<?php if (isset($this->fields->thumb)): ?>col-8<?php endif; ?>">
@@ -30,7 +30,7 @@
             <li class="clearfix">
                 <?php if (isset($items->fields->thumb)): ?>
                 <div class="col-4">
-                    <a href="<?php $items->permalink() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
+                    <a href="<?php $items->permalink() ?>" title="<?php $items->title() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
                 </div>
                 <?php endif; ?>
                 <div class="<?php if (isset($this->fields->thumb)): ?>col-8<?php endif; ?>">
@@ -50,14 +50,14 @@
         <?php while($comments->next()): ?>
             <li class="clearfix">
                 <div class="col-3 p0">
-                <?php $comments->gravatar('48',''); ?>
+                <a href="<?php $comments->permalink(); ?>" title="<?php $comments->title() ?>"><?php $comments->gravatar('48',''); ?></a>
                 </div>
                 <div class="col-9 p0">
                     <a href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?></a>
                     <h5>评论于:<a href="<?php $comments->permalink(); ?>"><?php $comments->title(); ?></a></h5>
                 </div>
                 <div class="col-12 comment-content">
-                    <?php $comments->excerpt(100, '...'); ?>
+                    <a href="<?php $comments->permalink(); ?>"><?php $comments->excerpt(100, '...'); ?></a>
                 </div>
 
             </li>
