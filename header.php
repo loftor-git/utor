@@ -30,10 +30,10 @@
     <div class="browsehappy" role="dialog"><?php _e('当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>'); ?>.</div>
 <![endif]-->
 
-<header id="header" class="clearfix">
+<header id="header" class="clearfix col-mb-12">
     <div class="container">
         <div class="row">
-            <div class="site-name col-mb-12 col-tb-4 col-4">
+            <div class="site-name col-mb-12 col-tb-6 col-3">
                 <a id="logo" href="<?php $this->options->siteUrl(); ?>">
                     <?php if ($this->options->logoUrl): ?>
                     <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>" />
@@ -42,7 +42,7 @@
                 </a>
         	    <span class="description"><?php $this->options->description() ?></span>
             </div>
-            <div class="nav-menu col-tb-8 col-6 kit-hidden-mb">
+            <div class="nav-menu col-6 kit-hidden-mb">
                 <nav id="nav-menu" class="clearfix" role="navigation">
                     <a<?php if($this->is('index')): ?> class="current"<?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
                     <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
@@ -51,7 +51,7 @@
                     <?php endwhile; ?>
                 </nav>
             </div>
-            <div class="site-search col-2 kit-hidden-tb">
+            <div class="site-search col-tb-6 col-3 kit-hidden-tb">
                 <form id="search" method="post" action="./" role="search">
                     <label for="s" class="sr-only"><?php _e('搜索关键字'); ?></label>
                     <input type="text" name="s" class="text" placeholder="<?php _e('输入关键字搜索'); ?>" />

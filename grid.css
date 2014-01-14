@@ -557,6 +557,16 @@
 @media (max-width: 1199px) {
   .kit-hidden {
     display: none; } }
+
+  @media (max-width: 767px) {
+  .kit-show-mb {
+    display: inherit; } }
+@media (max-width: 991px) {
+  .kit-show-tb {
+    display: inherit; } }
+@media (max-width: 1199px) {
+  .kit-show {
+    display: inherit; } }
 /*
  * Clearfix
  */

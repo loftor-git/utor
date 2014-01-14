@@ -10,7 +10,7 @@
  * Gobal style
  * --------------- */
 body {
-  background-color: #F6F6F3;
+  background-color: #FFFFFF;
   color: #444;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   /*font-family: "Droid Serif", Georgia, "Times New Roman", STHeiti, serif;*/
@@ -18,11 +18,12 @@ body {
 }
 
 a {
-  color: #3354AA;
+  color: #428BCA;
   text-decoration: none;
 }
 a:hover, a:active {
-  color: #444;
+  color: #2A6496;
+  /*text-decoration: underline;*/
 }
 pre, code {
   padding: 2px 4px;
@@ -69,20 +70,39 @@ textarea {
   resize: vertical;
 }
 
+.fl{
+  float: left;
+}
+
+.fr{
+  float: right;
+}
+
+.tl{
+  text-align: left;
+}
+
+.tr{
+  text-align: right;
+}
 
 /* Special link style */
 .post-meta a,
 .post-content a,
 .widget a,
+.aside a,
 .comment-content a {
-  border-bottom: 1px solid #EEE;
+  /*border-bottom: 1px solid #EEE;*/
+  color: #428BCA;
 }
 
 .post-meta a:hover,
 .post-content a:hover,
 .widget a:hover,
+.aside a:hover,
 .comment-content a {
-  border-bottom-color: transparent;
+  /*border-bottom-color: transparent;*/
+  text-decoration: underline;
 }
 
 .browsehappy {
@@ -102,18 +122,20 @@ textarea {
  * --------------- */
 
 #header {
-    background: none repeat scroll 0 0 #2C2C2C;
-    padding: 0 50px;
-    height: 35px;
+    background: none repeat scroll 0 0 #363636;
+    height: 50px;
     margin-bottom: 10px;
+    border-bottom: 1px solid #080808;
+    position: fixed;
 }
 
 #logo {
     color: #FFFFFF;
-    font-size: 25px;
-    height: 35px;
-    line-height: 35px;
+    font-size: 35px;
+    height: 50px;
+    line-height: 50px;
 }
+
 .description {
    color: #E9E9E9;
 }
@@ -124,8 +146,8 @@ textarea {
   background: none;
 }
 #nav-menu {
-  float: right;
-  line-height: 35px;
+  float: left;
+  line-height: 50px;
 }
 
 #nav-menu a{
@@ -134,17 +156,22 @@ textarea {
   float: left;
   margin: 0 5px;
   padding: 0 20px;
+  font-size: 1.1em;
 }
 
-#nav-menu a:hover,#nav-menu a:focus,#nav-menu .current{
+#nav-menu a:hover,#nav-menu a:focus{
   color: #FFFFFF;
-  background: #4C4C4C;
+}
+
+#nav-menu .current{
+  color: #FFFFFF;
+  background: #080808;
 }
 
 /* Search */
 #search {
   position: relative;
-  margin-top: 2.5px;
+  line-height: 50px;
 }
 #search input {
   padding-right: 30px;
@@ -152,7 +179,7 @@ textarea {
 #search button {
   position: absolute;
   right: 4px;
-  top: 2px;
+  top: 14px;
   border: none;
   padding: 0;
   width: 24px;
@@ -162,6 +189,41 @@ textarea {
   text-indent: -9999em;
 }
 
+/* ------------------
+ * Body
+ * --------------- */
+
+#body{
+  padding-top: 60px;
+}
+
+/* ------------------
+ * aside
+ * --------------- */
+#aside{
+
+}
+
+.aside-fixed{
+    position: fixed;
+    top:70px;
+}
+
+.aside-social{
+    border-top: 1px solid #E6EAED;
+    padding-top: 30px;
+}
+
+.aside-social-weixin img{
+  width: 173px;
+  height: 173px;
+}
+
+.aside-social p{
+    color: #666666;
+    font-size: 12px;
+    text-align: center;
+}
 
 /* ------------------
  * Main
@@ -170,20 +232,21 @@ textarea {
  #main{
  }
 
+.main-title{
+  border-bottom: 1px solid #EEEEEE;
+  padding-bottom: 20px;
+}
+
 .post {
   background: #FFFFFF;
-  border: 1px solid #EEEEEE;
-  padding: 15px 10px;
-  margin-bottom: 10px;
+  border-bottom: 1px solid #EEEEEE;
+  padding: 15px 10px 20px 10px;
 }
 
-.post-logo{
-  float: left;
-  margin-right: 10px;
-}
-
-.post-logo img{
-    width: 50px;
+.post-thumb {
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid #EEEEEE;
 }
 
 
@@ -191,23 +254,26 @@ textarea {
   margin: 5px 0;
   font-size: 1.4em;
 }
+
+.post-title a{
+  color: #333333;
+}
+
+.post-title a:hover{
+  color: #666666;
+}
+
 .post-meta {
-  margin-top: -0.5em;
+  margin: 0px;
   padding: 0;
   color: #999;
   font-size: .92857em;
 }
+
 .post-meta li {
   display: inline-block;
-  margin: 0 8px 0 0;
-  padding-left: 12px;
-  border-left: 1px solid #EEE;
 }
-.post-meta li:first-child {
-  margin-left: 0;
-  padding-left: 0;
-  border: none;
-}
+
 .post-content {
   line-height: 1.5;
 }
@@ -344,13 +410,14 @@ textarea {
   word-wrap: break-word;
 }
 .widget {
-  background:#EAEAEA;
+  /*background:#EAEAEA;*/
   padding: 5px 10px 5px 10px;
   margin-bottom: 10px;
 }
 .widget-title {
   margin: 0px;
-  border-bottom: 2px solid #7798CB;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E6EAED;
 }
 .widget-list {
   list-style: none;
