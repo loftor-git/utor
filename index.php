@@ -11,9 +11,9 @@
  $this->need('header.php');
  ?>
 <?php $this->need('aside.php'); ?>
-<div class="col-mb-12 col-tb-9 col-wd-7 " id="main" role="main">
+<div class="col-7 col-tb-9 col-mb-12" id="main" role="main">
 	<?php while($this->next()): ?>
-	<article class="post clearfix">
+	<article class="post clearfix <?php $odd=!$odd; if ($odd): ?>odd<?php endif; ?>">
 		<div class="row">
 			<?php if (isset($this->fields->thumb)): ?>
 			<div class="kit-hidden-tb col-3">

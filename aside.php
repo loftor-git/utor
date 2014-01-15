@@ -1,4 +1,4 @@
-<div class="col-tb-3 col-wd-2 kit-hidden-mb" id="aside" role="aside">
+<div class="col-2 col-tb-3 kit-hidden-mb" id="aside" role="aside">
 	<section class="tags widget">
 		<h3>Tags</h3>
 		<div>
@@ -10,8 +10,10 @@
 			<?php endif; ?>
 		</div>
 	</section>
-	<div id="social-position"></div>
-	<section class="social widget">
+	<div id="aside-position"></div>
+
+	<?php if($this->is('index')): ?>
+	<section class="social widget aside-fixed">
 		<p>微信公众平台：搜索“Loftor”或扫描下面的二维码：</p>
 		<div class="social-weixin"><img alt="" src="<?php $this->options->themeUrl('img/weixin.jpg'); ?>"></div>
 		<div class="social-icons">
@@ -23,4 +25,25 @@
 			</ul>
 		</div>
 	</section>
+	<?php endif; ?>
+	<?php if($this->is('category')): ?>
+	<section class="widget aside-fixed">
+		<h3>Menu</h3>
+		<div class="vernav-warp">
+			<ul class="vernav">
+				<li><span>导航菜单</span></li>
+				<li class="cur">
+					<span>JS代码</span>
+					<ul>
+						<li><a href="#">网页特效</a></li>
+						<li><a href="#">滚动代码</a></li>
+					</ul>
+				</li>
+				<li><span>网页特效</span></li>
+				<li><span>滚动代码</span></li>
+			</ul>
+		</div>
+	</section>
+	<?php endif; ?>
+
 </div>

@@ -3,11 +3,14 @@
  * --------------- */
 
  $(function () {
- 	$(document).scroll(function(){
-        if ($(this).scrollTop()>=($("#social-position").offset().top-50)) {
-			$(".social").css({position: "fixed",width:($("#social-position").width()-20)});
-        }else{
-			$(".social").css({position: "",width:""});
-        }
+ 	$(window).scroll(function(){
+	if ($(this).scrollTop()>=($("#aside-position").offset().top-50)) {
+		$(".aside-fixed").css({position: "fixed",width:($("#aside-position").width()-20)});
+	}else{
+		$(".aside-fixed").css({position: ""});
+	}
+	 $(window).resize(function() {
+	  	$(".aside-fixed").css({width:($("#aside-position").width()-20)});
+	});
     });
- })
+ });

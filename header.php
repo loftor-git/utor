@@ -35,7 +35,7 @@
 <header id="header" class="clearfix col-mb-12">
     <div class="container">
         <div class="row">
-            <div class="site-name col-mb-12 col-tb-6 col-3">
+            <div class="site-name col-mb-12 col-tb-4 col-4">
                 <a id="logo" href="<?php $this->options->siteUrl(); ?>">
                     <?php if ($this->options->logoUrl): ?>
                     <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>" />
@@ -44,7 +44,7 @@
                 </a>
         	    <span class="description kit-hidden-mb"><?php $this->options->description() ?></span>
             </div>
-            <div class="nav-menu col-6 kit-hidden-mb">
+            <div class="nav-menu col-tb-8 col-5 kit-hidden-mb">
                 <nav id="nav-menu" class="clearfix" role="navigation">
                     <a<?php if($this->is('index')): ?> class="current"<?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
                     <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>

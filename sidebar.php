@@ -1,4 +1,28 @@
-<div class="col-wd-3 kit-hidden" id="secondary" role="complementary">
+<div class="col-3 kit-hidden-tb" id="secondary" role="complementary">
+
+<?php if($this->is('post')): ?>
+    <section class="widget">
+    <h3 class="widget-title">Related</h3>
+        <ul class="widget-list ">
+            <?php $this->widget('Widget_Contents_Related',array('type' => 'post', 'tags' => $this->tags, 'limit' => 5),'mid=2')->to($items);?>
+            <?php if($items->have()): ?>
+            <?php while ($items->next()): ?>
+            <li class="clearfix">
+                <?php if (isset($items->fields->thumb)): ?>
+                <div class="col-4 kit-hidden">
+                    <a href="<?php $items->permalink() ?>" title="<?php $items->title() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
+                </div>
+                <?php endif; ?>
+                <div class="<?php if (isset($items->fields->thumb)): ?>col-wd-8<?php endif; ?> col-tb-12">
+                    <a href="<?php $items->permalink();?>"  title="<?php $items->title(); ?>"><?php $items->title(); ?></a>
+                </div>
+            </li>
+            <?php endwhile; ?>
+            <?php endif; ?>
+        </ul>
+    </section>
+    <?php endif; ?>
+
     <section class="widget">
     <h3 class="widget-title">Projects</h3>
         <ul class="widget-list ">
@@ -7,14 +31,13 @@
             <?php while ($items->next()): ?>
             <li class="clearfix">
                 <?php if (isset($items->fields->thumb)): ?>
-                <div class="col-4">
+                <div class="col-4 kit-hidden">
                     <a href="<?php $items->permalink() ?>" title="<?php $items->title() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
                 </div>
                 <?php endif; ?>
-                <div class="<?php if (isset($this->fields->thumb)): ?>col-8<?php endif; ?>">
+                <div class="<?php if (isset($items->fields->thumb)): ?>col-wd-8<?php endif; ?> col-tb-12">
                     <a href="<?php $items->permalink();?>"  title="<?php $items->title(); ?>"><?php $items->title(); ?></a>
                 </div>
-                
             </li>
             <?php endwhile; ?>
             <?php endif; ?>
@@ -29,11 +52,11 @@
             <?php while ($items->next()): ?>
             <li class="clearfix">
                 <?php if (isset($items->fields->thumb)): ?>
-                <div class="col-4">
+                <div class="col-4 kit-hidden">
                     <a href="<?php $items->permalink() ?>" title="<?php $items->title() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
                 </div>
                 <?php endif; ?>
-                <div class="<?php if (isset($this->fields->thumb)): ?>col-8<?php endif; ?>">
+                <div class="<?php if (isset($items->fields->thumb)): ?>col-wd-8<?php endif; ?> col-tb-12">
                     <a href="<?php $items->permalink();?>"  title="<?php $items->title(); ?>"><?php $items->title(); ?></a>
                 </div>
                 
@@ -49,14 +72,14 @@
         <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
         <?php while($comments->next()): ?>
             <li class="clearfix">
-                <div class="col-3 p0">
+                <div class="col-wd-3 kit-hidden p-0">
                 <a href="<?php $comments->permalink(); ?>" title="<?php $comments->title() ?>"><?php $comments->gravatar('48',''); ?></a>
                 </div>
-                <div class="col-9 p0">
+                <div class="col-wd-9 col-tb-12 p-0">
                     <a href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?></a>
-                    <h5>评论于:<a href="<?php $comments->permalink(); ?>"><?php $comments->title(); ?></a></h5>
+                    <h5><a href="<?php $comments->permalink(); ?>"><?php $comments->title(); ?></a></h5>
                 </div>
-                <div class="col-12 comment-content">
+                <div class="col-wd-12 col-tb-12 comment-text">
                     <a href="<?php $comments->permalink(); ?>"><?php $comments->excerpt(100, '...'); ?></a>
                 </div>
 

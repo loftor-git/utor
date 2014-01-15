@@ -1,6 +1,6 @@
 <?php $this->need('header.php'); ?>
-
-    <div class="col-mb-12 col-9" id="main" role="main">
+<?php $this->need('aside.php'); ?>
+    <div class="col-mb-12 col-tb-9 col-wd-7" id="main" role="main">
         <!-- <h3 class="archive-title"><?php $this->archiveTitle(array(
             'category'  =>  _t('分类 %s 下的文章'),
             'search'    =>  _t('包含关键字 %s 的文章'),
@@ -8,22 +8,25 @@
             'author'    =>  _t('%s 发布的文章')
         ), '', ''); ?></h3> -->
         <?php if ($this->have()): ?>
-    	<?php while($this->next()): ?>
-    <article class="post">
-    <?php if (isset($this->fields->logo)): ?>
-        <div class="post-logo kit-hidden-mb">
-            <a href="<?php $this->permalink() ?>"><img src="<?php $this->fields->logo(); ?>" alt="<?php $this->title() ?>" /></a>
-        </div>
-    <?php endif; ?>
-        <h2 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
-        <ul class="post-meta">
-            <li><?php _e('作者：'); ?><a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a></li>
-            <li><?php _e('时间：'); ?><?php time_tran($this->date)?></li>
-            <li><?php _e('关键字：'); ?><?php $this->tags(','); ?></li>
-            <li><a href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?></a></li>
-        </ul>
-        <div class="post-content">
-            <?php $this->content('- 阅读剩余部分 -'); ?>
+    <?php while($this->next()): ?>
+    <article class="post clearfix">
+        <div class="row">
+            <?php if (isset($this->fields->thumb)): ?>
+            <div class="kit-hidden-tb col-3">
+                <a href="<?php $this->permalink() ?>" title="<?php $this->title() ?>"><img class="post-thumb" src="<?php $this->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
+            </div>
+            <?php endif; ?>
+            <div class="col-mb-12 <?php if (isset($this->fields->thumb)): ?>col-9<?php endif; ?>">
+                <h3 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h3>
+                <ul class="post-meta clearfix">
+                    <li class="fl"><a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a> 发布于 <?php echo timesince($this->created)?></li>
+                    <li class="fr"><a href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评', '1 评', '%d 评'); ?></a></li>
+                </ul>
+                <div class="post-content">
+                    <?php $this->content('- 阅读剩余部分 -'); ?>
+                </div>
+                <div class="post-tags"><?php $this->tags(' '); ?></div>
+            </div>
         </div>
     </article>
     <?php endwhile; ?>
