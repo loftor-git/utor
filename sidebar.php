@@ -1,71 +1,77 @@
 <div class="col-3 kit-hidden-tb" id="secondary" role="complementary">
 
+
 <?php if($this->is('post')): ?>
+    <?php $this->related(15)->to($items);?>
+    <?php if($items->have()): ?>
     <section class="widget">
     <h3 class="widget-title">Related</h3>
         <ul class="widget-list ">
-            <?php $this->widget('Widget_Contents_Related',array('type' => 'post', 'tags' => $this->tags, 'limit' => 5),'mid=2')->to($items);?>
-            <?php if($items->have()): ?>
             <?php while ($items->next()): ?>
             <li class="clearfix">
                 <?php if (isset($items->fields->thumb)): ?>
-                <div class="col-4 kit-hidden">
+                <div class="col-4 kit-hidden p-l-0">
                     <a href="<?php $items->permalink() ?>" title="<?php $items->title() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
                 </div>
                 <?php endif; ?>
-                <div class="<?php if (isset($items->fields->thumb)): ?>col-wd-8<?php endif; ?> col-tb-12">
+                <div class="<?php if (isset($items->fields->thumb)): ?>col-wd-8<?php endif; ?> col-tb-12 p-0">
                     <a href="<?php $items->permalink();?>"  title="<?php $items->title(); ?>"><?php $items->title(); ?></a>
                 </div>
             </li>
             <?php endwhile; ?>
-            <?php endif; ?>
+        </ul>
+    </section>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if($this->is('index')): ?>
+    <?php $this->widget('Widget_Contents_Post_Recent')->to($items);?>
+    <?php if($items->have()): ?>
+    <section class="widget">
+    <h3 class="widget-title">Recent Projects</h3>
+        <ul class="widget-list ">
+            <?php while ($items->next()): ?>
+            <li class="clearfix">
+                <?php if (isset($items->fields->thumb)): ?>
+                <div class="col-4 kit-hidden p-l-0">
+                    <a href="<?php $items->permalink() ?>" title="<?php $items->title() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
+                </div>
+                <?php endif; ?>
+                <div class="<?php if (isset($items->fields->thumb)): ?>col-wd-8<?php endif; ?> col-tb-12 p-0">
+                    <a href="<?php $items->permalink();?>"  title="<?php $items->title(); ?>"><?php $items->title(); ?></a>
+                </div>
+            </li>
+            <?php endwhile; ?>
+            
         </ul>
     </section>
     <?php endif; ?>
+    <?php endif; ?>
 
+    <?php if($this->is('index')): ?>
+    <?php $this->widget('Widget_Contents_Post_Recent')->to($items);?>
+    <?php if($items->have()): ?>
     <section class="widget">
-    <h3 class="widget-title">Projects</h3>
-        <ul class="widget-list ">
-            <?php $this->widget('Widget_Contents_Post_Recent')->to($items);?>
-            <?php if($items->have()): ?>
-            <?php while ($items->next()): ?>
-            <li class="clearfix">
-                <?php if (isset($items->fields->thumb)): ?>
-                <div class="col-4 kit-hidden">
-                    <a href="<?php $items->permalink() ?>" title="<?php $items->title() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
-                </div>
-                <?php endif; ?>
-                <div class="<?php if (isset($items->fields->thumb)): ?>col-wd-8<?php endif; ?> col-tb-12">
-                    <a href="<?php $items->permalink();?>"  title="<?php $items->title(); ?>"><?php $items->title(); ?></a>
-                </div>
-            </li>
-            <?php endwhile; ?>
-            <?php endif; ?>
-        </ul>
-    </section>
-
-    <section class="widget">
-    <h3 class="widget-title">News</h3>
+    <h3 class="widget-title">Recent News</h3>
         <ul class="widget-list">
-            <?php $this->widget('Widget_Contents_Post_Recent')->to($items);?>
-            <?php if($items->have()): ?>
             <?php while ($items->next()): ?>
             <li class="clearfix">
                 <?php if (isset($items->fields->thumb)): ?>
-                <div class="col-4 kit-hidden">
+                <div class="col-4 kit-hidden p-l-0">
                     <a href="<?php $items->permalink() ?>" title="<?php $items->title() ?>"><img class="post-thumb" src="<?php $items->fields->thumb(); ?>" alt="<?php $this->title() ?>" /></a>
                 </div>
                 <?php endif; ?>
-                <div class="<?php if (isset($items->fields->thumb)): ?>col-wd-8<?php endif; ?> col-tb-12">
+                <div class="<?php if (isset($items->fields->thumb)): ?>col-wd-8<?php endif; ?> col-tb-12 p-0">
                     <a href="<?php $items->permalink();?>"  title="<?php $items->title(); ?>"><?php $items->title(); ?></a>
                 </div>
-                
             </li>
             <?php endwhile; ?>
-            <?php endif; ?>
         </ul>
     </section>
+    <?php endif; ?>
+    <?php endif; ?>
 
+    <?php if($this->is('index')): ?>
     <section class="widget sidebar-comment">
     <h3 class="widget-title">Comments</h3>
         <ul class="widget-list">
@@ -82,10 +88,9 @@
                 <div class="col-wd-12 col-tb-12 comment-text">
                     <a href="<?php $comments->permalink(); ?>"><?php $comments->excerpt(100, '...'); ?></a>
                 </div>
-
             </li>
         <?php endwhile; ?>
         </ul>
     </section>
-
+    <?php endif; ?>
 </div><!-- end #sidebar -->

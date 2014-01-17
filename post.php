@@ -1,7 +1,12 @@
 <?php $this->need('header.php'); ?>
-
-<div class="col-mb-12 col-9" id="main" role="main">
-    <article class="post">
+<?php $this->need('aside.php'); ?>
+<div class="col-7 col-tb-9 col-mb-12" id="main" role="main">
+    <article class="post single">
+        <?php if (isset($this->fields->banner)): ?>
+            <div class="kit-hidden-tb col-12">
+                <a href="<?php $this->permalink() ?>" title="<?php $this->title() ?>"><img class="post-thumb" src="<?php $this->fields->banner(); ?>" alt="<?php $this->title() ?>" /></a>
+            </div>
+        <?php endif; ?>
         <h1 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h1>
         <ul class="post-meta">
             <li><?php _e('作者：'); ?><?php $this->author(); ?></li>
@@ -16,10 +21,10 @@
 
     <?php $this->need('comments.php'); ?>
 
-    <ul class="post-near">
+<!--     <ul class="post-near">
         <li>上一篇：<?php $this->thePrev('%s','没有了'); ?></li>
         <li>下一篇：<?php $this->theNext('%s','没有了'); ?></li>
-    </ul>
+    </ul> -->
 </div><!-- end #main-->
 
 <?php $this->need('sidebar.php'); ?>

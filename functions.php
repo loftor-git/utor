@@ -44,3 +44,13 @@ function timesince($older_date,$comment_date = false) {
     }
     return $output;
 }
+
+
+function deep_in_array($value, $array, $case_insensitive = false){
+   foreach($array as $item){
+       if(is_array($item)) $ret = deep_in_array($value, $item, $case_insensitive);
+       else $ret = ($case_insensitive) ? strtolower($item)==$value : $item==$value;
+       if($ret)return $ret;
+   }
+   return false;
+}

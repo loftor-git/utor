@@ -23,7 +23,7 @@
 			<div class="col-mb-12 <?php if (isset($this->fields->thumb)): ?>col-9<?php endif; ?>">
 				<h3 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h3>
 				<ul class="post-meta clearfix">
-					<li class="fl"><a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a> 发布于 <?php echo timesince($this->created)?></li>
+					<li class="fl"><a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a> <?php $this->dateWord();?> </li>
 					<li class="fr"><a href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评', '1 评', '%d 评'); ?></a></li>
 				</ul>
 				<div class="post-content">
@@ -34,7 +34,7 @@
 		</div>
 	</article>
 	<?php endwhile; ?>
-    <?php $this->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
+    <?php $this->pageNav('前一页', '后一页'); ?>
 </div><!-- end #main-->
 
 <?php $this->need('sidebar.php'); ?>

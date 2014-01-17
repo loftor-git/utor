@@ -10,7 +10,7 @@
             'search'    =>  _t('包含关键字 %s 的文章'),
             'tag'       =>  _t('标签 %s 下的文章'),
             'author'    =>  _t('%s 发布的文章')
-        ), '', ' - '); ?><?php $this->options->title(); ?></title>
+        ), '', ' - '); ?><?php $this->options->title(); ?>-关注开源项目及技术资讯</title>
 
     <!-- 使用url函数转换相关路径 -->
     <link rel="stylesheet" href="http://cdn.staticfile.org/normalize/2.1.3/normalize.min.css">
@@ -42,22 +42,18 @@
                     <?php endif; ?>
                     <?php $this->options->title() ?>
                 </a>
-        	    <span class="description kit-hidden-mb"><?php $this->options->description() ?></span>
+        	    <span class="description kit-hidden-mb">关注开源项目及技术资讯</span>
             </div>
             <div class="nav-menu col-tb-8 col-5 kit-hidden-mb">
-                <nav id="nav-menu" class="clearfix" role="navigation">
-                    <a<?php if($this->is('index')): ?> class="current"<?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
-                    <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
-                    <?php while($category->next()): ?>
-                    <a<?php if($this->is('category', $category->slug)): ?> class="current"<?php endif; ?> href="<?php $category->permalink(); ?>" title="<?php $category->name(); ?>"><?php $category->name(); ?></a>
-                    <?php endwhile; ?>
+                <nav role="navigation">
+                    <?php $this->need('menu.php'); ?>
                 </nav>
             </div>
             <div class="site-search col-tb-6 col-3 kit-hidden-tb">
                 <form id="search" method="post" action="./" role="search">
-                    <label for="s" class="sr-only"><?php _e('搜索关键字'); ?></label>
-                    <input type="text" name="s" class="text" placeholder="<?php _e('输入关键字搜索'); ?>" />
-                    <button type="submit" class="submit"><?php _e('搜索'); ?></button>
+                    <label for="s" class="sr-only">搜索关键字</label>
+                    <input type="text" name="s" class="text" placeholder="输入关键字搜索" />
+                    <button type="submit" class="submit">搜索</button>
                 </form>
             </div>
         </div><!-- end .row -->
