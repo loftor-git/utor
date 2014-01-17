@@ -25,7 +25,7 @@
     <?php endif; ?>
 
     <?php if($this->is('index')): ?>
-    <?php $this->widget('Widget_Contents_Post_Recent')->to($items);?>
+    <?php $this->widget('Widget_Archive@RecentProjects', 'type=category', 'mid=2')->to($items);?>
     <?php if($items->have()): ?>
     <section class="widget">
     <h3 class="widget-title">Recent Projects</h3>
@@ -41,6 +41,7 @@
                     <a href="<?php $items->permalink();?>"  title="<?php $items->title(); ?>"><?php $items->title(); ?></a>
                 </div>
             </li>
+
             <?php endwhile; ?>
             
         </ul>
@@ -49,7 +50,7 @@
     <?php endif; ?>
 
     <?php if($this->is('index')): ?>
-    <?php $this->widget('Widget_Contents_Post_Recent')->to($items);?>
+    <?php $this->widget('Widget_Archive@RecentNews', 'type=category', 'mid=1')->to($items);?>
     <?php if($items->have()): ?>
     <section class="widget">
     <h3 class="widget-title">Recent News</h3>

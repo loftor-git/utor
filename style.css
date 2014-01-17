@@ -533,7 +533,7 @@ textarea {
  * Comment list
  * --------------- */
 #comments {
-  padding-top: 15px;
+  padding: 15px 0;
 }
 .comment-list, .comment-list ol {
   list-style: none;
@@ -543,10 +543,10 @@ textarea {
 .comment-list li {
   padding: 14px;
   margin-top: 10px;
-  border: 1px solid #EEE;
+  /*border: 1px solid #EEE;*/
 }
 .comment-list li.comment-level-odd {
-  background: #F6F6F3;
+  background: #FAFAFA;
 }
 .comment-list li.comment-level-even {
   background: #FFF;
@@ -570,6 +570,7 @@ textarea {
 .comment-author .avatar {
   float: left;
   margin-right: 10px;
+  border-radius: 50%;
 }
 .comment-author cite {
   font-weight: bold;
